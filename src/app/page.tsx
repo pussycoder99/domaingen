@@ -4,7 +4,7 @@ import { Sparkles } from 'lucide-react';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-indigo-50/20 via-white to-purple-50/20 dark:from-slate-900/50 dark:via-background dark:to-purple-900/20 text-foreground">
+    <main className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-red-900/50 text-foreground">
       <div className="container mx-auto px-4 py-12 sm:px-6 lg:py-24">
         <header className="text-center mb-12">
           <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-primary/20 hover:bg-primary/20">
