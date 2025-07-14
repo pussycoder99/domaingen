@@ -2,7 +2,7 @@ export const TLDs = ['.com', '.io', '.ai', '.app', '.co', '.xyz', '.net', '.org'
 
 // NOTE: Replace this with your actual WHMCS URL. 
 // This can be set in an environment variable for better security and flexibility.
-const WHMCS_URL_TEMPLATE = 'https://your-whmcs-site.com/cart.php?a=add&domain=register&query={domain}';
+const WHMCS_URL_TEMPLATE = 'https://portal.snbdhost.com/cart.php?a=add&domain=register&query={domain}';
 
 export const generateWhmcsLink = (domain: string) => {
   return WHMCS_URL_TEMPLATE.replace('{domain}', domain);
