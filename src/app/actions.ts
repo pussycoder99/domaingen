@@ -1,24 +1,23 @@
 'use server';
 
-import { generateDomainNames } from '@/ai/flows/generate-domain-names';
+import { generateDomainNames, type GenerateDomainNamesInput } from '@/ai/flows/generate-domain-names';
 import { checkDomainAvailability, type DomainSuggestion } from '@/lib/domain-utils';
 import { z } from 'zod';
 
 const ActionInputSchema = z.object({
-  businessDescription: z.string().min(10, { message: 'Description must be at least 10 characters.' }),
-  keywords: z.string().min(2, { message: 'Please enter at least one keyword.' }),
+    answers: z.array(z.string().min(1, { message: 'Please answer all questions.' })),
 });
 
 const getBaseName = (domain: string): string => {
   const cleanedDomain = domain.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
   const parts = cleanedDomain.split('.');
+  const TLDs = ['.com', '.io', '.ai', '.app', '.co', '.xyz', '.net', '.org'];
   if (parts.length > 1 && TLDs.includes(`.${parts[parts.length - 1]}`)) {
     return parts.slice(0, -1).join('.');
   }
   return cleanedDomain;
 };
 
-const TLDs = ['.com', '.io', '.ai', '.app', '.co', '.xyz', '.net', '.org'];
 
 export async function getDomainSuggestions(
   input: z.infer<typeof ActionInputSchema>
@@ -27,9 +26,16 @@ export async function getDomainSuggestions(
   if (!validation.success) {
     return { success: false, error: validation.error.errors.map(e => e.message).join(' ') };
   }
+  
+  const aiInput: GenerateDomainNamesInput = {
+    projectName: validation.data.answers[0] || 'N/A',
+    businessType: validation.data.answers[1] || 'N/A',
+    targetAudience: validation.data.answers[2] || 'N/A',
+    keywords: validation.data.answers[3] || 'N/A',
+  };
 
   try {
-    const aiResult = await generateDomainNames(validation.data);
+    const aiResult = await generateDomainNames(aiInput);
     
     if (!aiResult || !aiResult.domainNames || aiResult.domainNames.length === 0) {
       return { success: false, error: 'The AI could not generate domain names. Please try a different prompt.' };
