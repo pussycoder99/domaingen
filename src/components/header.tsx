@@ -51,8 +51,8 @@ export default function Header() {
           </nav>
 
           <div className="hidden lg:flex items-center space-x-4">
-            <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-5 rounded-md text-sm">
-              My Dashboard
+            <Button asChild className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-5 rounded-md text-sm">
+              <a href="https://portal.snbdhost.com/clientarea.php">My Dashboard</a>
             </Button>
           </div>
 
@@ -77,8 +77,8 @@ export default function Header() {
                     </nav>
                   </div>
                   <div className="mt-auto mb-8">
-                     <Button className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md text-lg">
-                        My Dashboard
+                     <Button asChild className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md text-lg">
+                        <a href="https://portal.snbdhost.com/clientarea.php">My Dashboard</a>
                       </Button>
                   </div>
                 </div>
