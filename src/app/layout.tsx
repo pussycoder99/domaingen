@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
+import SupportButton from '@/components/support-button';
 
 export const metadata: Metadata = {
   title: 'DomainPilot',
@@ -21,6 +22,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         {children}
+        <SupportButton />
         <Toaster />
       </body>
     </html>
