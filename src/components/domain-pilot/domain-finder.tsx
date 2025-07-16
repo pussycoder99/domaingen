@@ -11,8 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Progress } from '@/components/ui/progress';
-import { Skeleton } from '@/components/ui/skeleton';
-import { CheckCircle2, XCircle, Search, Sparkles, ChevronRight, ChevronLeft, HelpCircle, ArrowRight } from 'lucide-react';
+import { CheckCircle2, XCircle, Search, ChevronRight, ChevronLeft, HelpCircle, ArrowRight } from 'lucide-react';
 import { Badge } from '../ui/badge';
 
 const questions = [
@@ -107,10 +106,10 @@ export default function DomainFinder() {
   }
 
   const renderQuestionnaire = () => (
-    <Card className="max-w-2xl mx-auto shadow-xl ring-1 ring-black/5 dark:ring-white/10">
+    <Card className="max-w-2xl mx-auto shadow-lg border border-gray-200">
       <CardContent className="p-8">
         <div className="flex justify-between items-center mb-4">
-          <p className="text-sm font-medium text-muted-foreground">
+          <p className="text-sm font-medium text-gray-500">
             Question {currentQuestion + 1} of {questions.length}
           </p>
           <p className="text-sm font-semibold text-primary">{Math.round(progress)}% Complete</p>
@@ -124,8 +123,8 @@ export default function DomainFinder() {
           exit={{ opacity: 0, x: -50 }}
           transition={{ duration: 0.3 }}
         >
-          <label htmlFor={questions[currentQuestion].id} className="block text-xl font-semibold mb-4 text-foreground">
-            <HelpCircle className="inline-block w-6 h-6 mr-3 text-primary" />
+          <label htmlFor={questions[currentQuestion].id} className="block text-xl font-semibold mb-4 text-gray-800">
+            <HelpCircle className="inline-block w-5 h-5 mr-2 text-primary" />
             {questions[currentQuestion].text}
           </label>
           <Input
@@ -142,7 +141,7 @@ export default function DomainFinder() {
           <Button variant="ghost" onClick={handlePrevious} disabled={currentQuestion === 0}>
             <ChevronLeft /> Previous
           </Button>
-          <Button onClick={handleNext} className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Button onClick={handleNext} className="bg-primary hover:bg-red-700 text-primary-foreground">
             {currentQuestion === questions.length - 1 ? 'Generate Domains' : 'Next'} <ChevronRight />
           </Button>
         </div>
@@ -156,8 +155,8 @@ export default function DomainFinder() {
             <div className="relative inline-block">
                 <Search className="mx-auto h-16 w-16 text-primary animate-pulse" />
             </div>
-            <h3 className="mt-6 text-2xl font-semibold text-foreground">Generating your perfect domain...</h3>
-            <p className="mt-2 text-muted-foreground">Our AI is working its magic. This might take a moment.</p>
+            <h3 className="mt-6 text-2xl font-semibold text-gray-900">Generating your perfect domain...</h3>
+            <p className="mt-2 text-gray-600">Our AI is working its magic. This might take a moment.</p>
         </div>
     );
   };
@@ -165,10 +164,10 @@ export default function DomainFinder() {
   const renderResults = () => {
     if (results.length === 0) {
       return (
-        <div className="text-center py-16 border-2 border-dashed border-border rounded-lg">
+        <div className="text-center py-16 border-2 border-dashed border-gray-300 rounded-lg">
             <XCircle className="mx-auto h-12 w-12 text-destructive" />
-            <h3 className="mt-4 text-lg font-medium text-foreground">No Domains Generated</h3>
-            <p className="mt-1 text-sm text-muted-foreground">
+            <h3 className="mt-4 text-lg font-medium text-gray-900">No Domains Generated</h3>
+            <p className="mt-1 text-sm text-gray-500">
             The AI couldn&apos;t generate any domains. Please try adjusting your answers.
             </p>
              <Button onClick={() => setStep('questionnaire')} className="mt-6">
@@ -198,22 +197,22 @@ export default function DomainFinder() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                >
-                <Card className="h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
+                <Card className="h-full flex flex-col hover:shadow-lg transition-shadow duration-300 border border-gray-200">
                   <CardHeader>
-                    <CardTitle className="font-headline text-2xl tracking-tight">{suggestion.baseName}</CardTitle>
+                    <CardTitle className="font-headline text-2xl tracking-tight text-gray-800">{suggestion.baseName}</CardTitle>
                   </CardHeader>
                   <CardContent className="flex-grow flex flex-col justify-between space-y-4">
                     <ul className="space-y-3">
                       {suggestion.tlds.map(({ tld, available }) => (
                         <li key={tld} className="flex items-center justify-between text-sm">
-                          <span className="font-medium text-muted-foreground">{suggestion.baseName}{tld}</span>
+                          <span className="font-medium text-gray-600">{suggestion.baseName}{tld}</span>
                           {available ? (
-                            <Badge variant="secondary" className="text-green-500 border-green-500/20">
+                            <Badge variant="secondary" className="text-green-600 bg-green-100 border-green-200">
                               <CheckCircle2 className="w-4 h-4 mr-1.5" />
                               Available
                             </Badge>
                           ) : (
-                            <Badge variant="outline" className="text-red-500">
+                            <Badge variant="outline" className="text-red-600 border-red-200">
                               <XCircle className="w-4 h-4 mr-1.5" />
                               Taken
                             </Badge>
@@ -221,7 +220,7 @@ export default function DomainFinder() {
                         </li>
                       ))}
                     </ul>
-                    <Button asChild className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground"
+                    <Button asChild className="w-full mt-4 bg-primary hover:bg-red-700 text-primary-foreground"
                          disabled={!suggestion.tlds.some(t => t.available)}>
                       <a href={generateWhmcsLink(suggestion.baseName + (suggestion.tlds.find(t=>t.available)?.tld || ''))} target="_blank" rel="noopener noreferrer">
                         Register Now <ArrowRight className="ml-2" />

@@ -20,21 +20,21 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header className="w-full bg-white text-gray-800 shadow-sm">
-      <div className="bg-red-600 text-white text-center p-2 text-sm">
+    <header className="w-full bg-white text-gray-800 border-b border-gray-200 sticky top-0 z-50">
+      <div className="bg-red-600 text-white text-center p-2 text-xs font-medium">
         <p>
-          Don&apos;t Hesitate to try us out.. Its FREE! Takes 1 Minute to sign up and Get 14 Days of FREE Singapore Premium Hosting! What else do you need to speed up your online presence?
+          Don&apos;t Hesitate to try us out.. Its FREE! Takes 1 Minute to sign up and Get 14 Days of FREE Singapore Premium Hosting!
         </p>
       </div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Image
                 src="https://snbdhost.com/wp-content/uploads/2025/05/Untitled-design-6.png"
                 alt="SNBD Host Logo"
-                width={150}
-                height={50}
+                width={120}
+                height={40}
                 priority
                 className="h-auto w-auto"
               />
@@ -43,7 +43,7 @@ export default function Header() {
 
           <nav className="hidden lg:flex items-center space-x-6">
             {navLinks.map((link) => (
-              <Link key={link.label} href={link.href} className={`flex items-center text-sm font-medium transition-colors hover:text-red-600 ${link.active ? 'text-red-600 border-b-2 border-red-600' : 'text-gray-600'}`}>
+              <Link key={link.label} href={link.href} className={`flex items-center text-sm font-medium transition-colors hover:text-red-600 ${link.active ? 'text-red-600' : 'text-gray-600'}`}>
                 {link.label}
                 {link.dropdown && <ChevronDown className="w-4 h-4 ml-1" />}
               </Link>
@@ -51,7 +51,7 @@ export default function Header() {
           </nav>
 
           <div className="hidden lg:flex items-center space-x-4">
-            <Button className="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-6 rounded-md">
+            <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-5 rounded-md text-sm">
               My Dashboard
             </Button>
           </div>
@@ -77,7 +77,7 @@ export default function Header() {
                     </nav>
                   </div>
                   <div className="mt-auto mb-8">
-                     <Button className="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-6 rounded-md text-lg">
+                     <Button className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-md text-lg">
                         My Dashboard
                       </Button>
                   </div>
