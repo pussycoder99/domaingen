@@ -7,6 +7,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { Badge } from './ui/badge';
 
 const navLinks = [
   { href: 'https://snbdhost.com', label: 'Home', active: true },
@@ -29,7 +30,7 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center gap-2">
               <Image
                 src="https://snbdhost.com/wp-content/uploads/2025/05/Untitled-design-6.png"
                 alt="SNBD Host Logo"
@@ -38,6 +39,7 @@ export default function Header() {
                 priority
                 className="h-auto w-auto"
               />
+              <Badge variant="secondary">BETA</Badge>
             </Link>
           </div>
 
