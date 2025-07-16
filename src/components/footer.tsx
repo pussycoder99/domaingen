@@ -3,16 +3,15 @@ import Link from 'next/link';
 
 const footerLinks = {
   account: [
-    { href: 'https://portal.snbdhost.com/submitticket.php', label: 'Open Ticket' },
     { href: 'https://portal.snbdhost.com/knowledgebase', label: 'Knowledgebase' },
-    { href: 'https://portal.snbdhost.com/clientarea.php?action=invoices', label: 'Invoices' },
-    { href: 'https://portal.snbdhost.com/clientarea.php?action=details', label: 'Account Settings' },
-    { href: 'https://portal.snbdhost.com/clientarea.php?action=services', label: 'My Services' },
+    { href: 'https://snbdhost.com/#', label: 'Invoices' },
+    { href: 'https://snbdhost.com/#', label: 'Account Settings' },
+    { href: 'https://snbdhost.com/#', label: 'My Services' },
   ],
   legals: [
-    { href: 'https://snbdhost.com/terms-of-service', label: 'Terms of Service' },
+    { href: 'https://snbdhost.com/terms-of-service/', label: 'Terms of Service' },
     { href: 'https://snbdhost.com/privacy-policy', label: 'Privacy & Protection' },
-    { href: 'https://snbdhost.com/domain-registration-agreement', label: 'Domain Policy' },
+    { href: 'https://snbdhost.com/domain-policy/', label: 'Domain Policy' },
   ],
   support: [
     { href: 'https://snbdhost.com/support', label: 'Live Support' },
