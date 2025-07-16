@@ -9,13 +9,13 @@ import {
 } from "@/components/ui/sheet"
 
 const navLinks = [
-  { href: '#', label: 'Home', active: true },
-  { href: '#', label: 'Hosting', dropdown: true },
-  { href: '#', label: 'N8N Automation Hosting' },
-  { href: '#', label: 'Domain' },
-  { href: '#', label: 'Servers', dropdown: true },
-  { href: '#', label: 'Support' },
-  { href: '#', label: 'Contact' },
+  { href: 'https://snbdhost.com', label: 'Home', active: true },
+  { href: 'https://snbdhost.com/shared-hosting', label: 'Hosting', dropdown: true },
+  { href: 'https://snbdhost.com/n8n', label: 'N8N Automation Hosting' },
+  { href: 'https://snbdhost.com/domain', label: 'Domain' },
+  { href: 'https://snbdhost.com/bdix-vps', label: 'Servers', dropdown: true },
+  { href: 'https://snbdhost.com/support', label: 'Support' },
+  { href: 'https://snbdhost.com/contact', label: 'Contact' },
 ];
 
 export default function Header() {
