@@ -1,11 +1,12 @@
 import DomainFinder from '@/components/domain-pilot/domain-finder';
 import Header from '@/components/header';
+import Footer from '@/components/footer';
 
 export default function Home() {
   return (
-    <div className="bg-white">
+    <div className="bg-white flex flex-col min-h-screen">
       <Header />
-      <main className="text-foreground container mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="flex-grow text-foreground container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-12 sm:py-16">
           <header className="text-center mb-12">
             <h1 className="font-headline text-4xl md:text-5xl font-bold tracking-tighter text-gray-900">
@@ -18,12 +19,8 @@ export default function Home() {
 
           <DomainFinder />
         </div>
-        <footer className="text-center p-4 mt-16 border-t">
-            <p className="text-sm text-gray-500">
-                Powered by SNBD Host and AI. Ready for launch.
-            </p>
-        </footer>
       </main>
+      <Footer />
     </div>
   );
 }
