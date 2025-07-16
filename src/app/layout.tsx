@@ -21,6 +21,9 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         {children}
+        <div className="fixed bottom-5 right-5 z-50 rounded-full bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-lg">
+          BETA
+        </div>
         <Toaster />
       </body>
     </html>
